@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.Usuario;
@@ -68,7 +69,8 @@ public class VentanaSistemaController implements Initializable {
     private ImageView imagen1;
     @FXML
     private ImageView imagen2;
-    
+    @FXML
+    private HBox hbox_advertencia;
     
     
     public static String nombre_ingresado;
@@ -77,7 +79,7 @@ public class VentanaSistemaController implements Initializable {
     @FXML
     void ingresar(ActionEvent event) {
         cargarUsuarios("usuarios.txt");
-        VBox vbox = new VBox();      
+        
         Label advertencia = new Label("Usuario o Contraseña incorrectos. Volver a intentar");
         String usuario_ingresado = tf_usuario.getText();
         String contrasenia_ingresada = tf_contrasenia.getText();
@@ -88,6 +90,8 @@ public class VentanaSistemaController implements Initializable {
                 accesoMenu();
 
             } else {
+                hbox_advertencia.getChildren().clear();
+                hbox_advertencia.getChildren().add(advertencia);
                 tf_usuario.clear();
                 tf_contrasenia.clear();
             }
@@ -99,12 +103,12 @@ public class VentanaSistemaController implements Initializable {
         try {
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("VentanaMenu.fxml"));
             Parent root = fxmlloader.load();
-            Scene menu = new Scene(root);
+            Scene menu = new Scene(root, 600, 400);
             Stage stage = (Stage) btn_ingresar.getScene().getWindow();
             stage.setScene(menu);
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
     }
 

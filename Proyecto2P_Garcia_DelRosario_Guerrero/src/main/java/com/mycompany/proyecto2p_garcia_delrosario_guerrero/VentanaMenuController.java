@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,9 +45,9 @@ public class VentanaMenuController implements Initializable {
         hb_bienvenido.getChildren().add(nombre);
         
         try ( FileInputStream input = new FileInputStream(App.pathImg + "imagenMenu.png")) {
-            Image image = new Image(input, 300, 600, true, true);
+            Image image = new Image(input, 400, 400, false, false);
             viewMenu.setImage(image);
-            viewMenu.setClip(null);
+            Rectangle2D viewreport= new Rectangle2D(-1200,-1000, viewMenu.getImage().getWidth()+800, viewMenu.getImage().getHeight()+800);
 
         } catch (IOException ex) {
 
@@ -81,7 +82,7 @@ public class VentanaMenuController implements Initializable {
             stage.setScene(menu);
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
     }
 

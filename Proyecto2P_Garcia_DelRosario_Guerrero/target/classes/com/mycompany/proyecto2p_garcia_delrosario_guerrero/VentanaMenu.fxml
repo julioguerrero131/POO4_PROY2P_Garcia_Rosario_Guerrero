@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2C2C2B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaMenuController">
+<HBox maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2C2C2B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaMenuController">
    <children>
       <ImageView fx:id="viewMenu" fitHeight="401.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" />
-      <VBox prefHeight="400.0" prefWidth="299.0">
+      <VBox minHeight="400.0" minWidth="299.0" prefHeight="400.0" prefWidth="299.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="299.0">
                <children>
@@ -23,7 +23,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="184.0" prefWidth="299.0">
+            <VBox alignment="BOTTOM_CENTER" minHeight="184.0" minWidth="299.0" prefHeight="184.0" prefWidth="299.0">
                <children>
                   <Button fx:id="btn_cercano" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" style="-fx-background-color: #ff9706;" text="Encuentra el local mas cercano">
                      <VBox.margin>

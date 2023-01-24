@@ -20,7 +20,7 @@
             <Insets top="50.0" />
          </VBox.margin>
       </Label>
-      <HBox prefHeight="126.0" prefWidth="600.0">
+      <HBox prefHeight="81.0" prefWidth="600.0">
          <children>
             <VBox prefHeight="111.0" prefWidth="71.0">
                <children>
@@ -35,7 +35,7 @@
                   <Insets left="150.0" />
                </HBox.margin>
             </VBox>
-            <VBox prefHeight="111.0" prefWidth="188.0">
+            <VBox fx:id="vbox_tf" prefHeight="111.0" prefWidth="188.0">
                <children>
                   <TextField fx:id="tf_usuario" />
                   <PasswordField fx:id="tf_contrasenia">
@@ -50,12 +50,13 @@
             <Insets top="40.0" />
          </VBox.margin>
       </HBox>
-      <HBox prefHeight="196.0" prefWidth="600.0">
+      <HBox fx:id="hbox_advertencia" alignment="CENTER" maxHeight="79.0" prefHeight="79.0" prefWidth="600.0" />
+      <HBox alignment="CENTER" maxHeight="158.0" prefHeight="158.0" prefWidth="600.0">
          <children>
-            <ImageView fx:id="imagen1" fitHeight="171.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imagen1" fitHeight="144.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btn_ingresar" mnemonicParsing="false" onAction="#ingresar" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #EA8008;" text="Ingresar" textAlignment="JUSTIFY">
                <HBox.margin>
-                  <Insets left="50.0" top="50.0" />
+                  <Insets bottom="70.0" left="50.0" top="50.0" />
                </HBox.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -64,12 +65,15 @@
                   <Insets left="3.0" right="3.0" />
                </padding>
             </Button>
-            <ImageView fx:id="imagen2" fitHeight="172.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imagen2" fitHeight="144.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets left="80.0" />
                </HBox.margin>
             </ImageView>
          </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

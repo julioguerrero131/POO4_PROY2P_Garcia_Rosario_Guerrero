@@ -1,3 +1,9 @@
+modelo\Menu.class
+com\mycompany\proyecto2p_garcia_delrosario_guerrero\VentanaPedidoController.class
 com\mycompany\proyecto2p_garcia_delrosario_guerrero\VentanaSistemaController.class
+com\mycompany\proyecto2p_garcia_delrosario_guerrero\ManejoArchivos.class
 module-info.class
+com\mycompany\proyecto2p_garcia_delrosario_guerrero\VentanaMenuController.class
 com\mycompany\proyecto2p_garcia_delrosario_guerrero\App.class
+modelo\Tipo.class
+modelo\Usuario.class
