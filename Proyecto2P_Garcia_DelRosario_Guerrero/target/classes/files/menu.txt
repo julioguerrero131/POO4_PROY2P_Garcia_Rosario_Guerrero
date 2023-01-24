@@ -1,0 +1,14 @@
+descripcion,precio,tipo
+hamburguesa simple,5.00,F
+tiramisú,4.00,P
+Coca Cola 400 ml,2.00,B
+Cheese Fingers x5,3.00,Q
+Lasania,3.50,F
+Shawarma,4.00,Q
+Happy Brownie,2.50,P
+Batido de Guineo,1.50,B
+Papas Fritas,1.00,Q
+Ensalada de Frutas,2.00,P
+Del Valle 200 ml,1.50,B
+Seco de Carne,2.50,F
+Seco de Pollo (con cuerito),3.00,F
