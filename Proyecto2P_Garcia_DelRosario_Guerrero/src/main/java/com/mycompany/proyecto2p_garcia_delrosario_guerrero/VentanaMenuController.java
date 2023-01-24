@@ -82,8 +82,9 @@ public class VentanaMenuController implements Initializable {
             stage.setScene(menu);
 
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Error ingresar_pedido");
         }
+
     }
 
 }

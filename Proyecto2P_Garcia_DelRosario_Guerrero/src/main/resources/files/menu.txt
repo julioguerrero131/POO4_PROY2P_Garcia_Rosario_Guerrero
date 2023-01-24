@@ -9,6 +9,6 @@ Happy Brownie,2.50,P
 Batido de Guineo,1.50,B
 Papas Fritas,1.00,Q
 Ensalada de Frutas,2.00,P
-Del Valle 200 ml;1.50,B
+Del Valle 200 ml,1.50,B
 Seco de Carne,2.50,F
 Seco de Pollo (con cuerito),3.00,F

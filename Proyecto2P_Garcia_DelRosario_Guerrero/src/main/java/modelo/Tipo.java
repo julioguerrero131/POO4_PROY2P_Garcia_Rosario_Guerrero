@@ -9,5 +9,5 @@ package modelo;
  * @author Cliente Intel
  */
 public enum Tipo {
-    F,P,B,Q
+    F,P,B,Q;
 }

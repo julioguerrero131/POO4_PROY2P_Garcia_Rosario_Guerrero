@@ -40,7 +40,7 @@ public class ManejoArchivos {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error lectura archivo");
         } finally {
             // En el finally cerramos el fichero, para asegurarnos
             // que se cierra tanto si todo va bien como si salta 
@@ -50,7 +50,7 @@ public class ManejoArchivos {
                     fr.close();
                 }
             } catch (Exception e2) {
-                e2.printStackTrace();
+                System.out.println("Error cerrar archivo");
             }
         }
         return lineas;
@@ -72,7 +72,7 @@ public class ManejoArchivos {
 //            System.out.println("ksdsdlsd");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error escritura archivo");
         } finally {
             try {
                 // Nuevamente aprovechamos el finally para 
@@ -82,7 +82,7 @@ public class ManejoArchivos {
                     bw.close();
                 }
             } catch (Exception e2) {
-                e2.printStackTrace();
+                System.out.println("Error cerrar archivo");
             }
         }
     }

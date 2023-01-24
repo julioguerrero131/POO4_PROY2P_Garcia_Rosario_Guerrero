@@ -78,7 +78,7 @@ public class VentanaSistemaController implements Initializable {
     
     @FXML
     void ingresar(ActionEvent event) {
-        cargarUsuarios("usuarios.txt");
+        cargarUsuarios(App.pathFiles+"usuarios.txt");
         
         Label advertencia = new Label("Usuario o Contraseña incorrectos. Volver a intentar");
         String usuario_ingresado = tf_usuario.getText();
@@ -108,7 +108,7 @@ public class VentanaSistemaController implements Initializable {
             stage.setScene(menu);
 
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Error acceso Menu");
         }
     }
 
