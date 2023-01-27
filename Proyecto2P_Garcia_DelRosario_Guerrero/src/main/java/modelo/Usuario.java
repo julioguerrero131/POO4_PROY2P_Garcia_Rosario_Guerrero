@@ -4,11 +4,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Cliente Intel
  */
-public class Usuario {
+public class Usuario implements Serializable {
     private String usuario;
     private String contrasenia;
     private String nombre;

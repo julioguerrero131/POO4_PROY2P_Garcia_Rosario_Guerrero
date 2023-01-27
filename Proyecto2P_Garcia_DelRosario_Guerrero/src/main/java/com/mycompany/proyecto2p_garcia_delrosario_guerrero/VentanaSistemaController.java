@@ -74,6 +74,7 @@ public class VentanaSistemaController implements Initializable {
     
     
     public static String nombre_ingresado;
+    public static Usuario userSesion;
     
     
     @FXML
@@ -87,6 +88,7 @@ public class VentanaSistemaController implements Initializable {
         for (Usuario u : lista_usuarios) {
             if (u.getUsuario().equals(usuario_ingresado) && u.getContrasenia().equals(contrasenia_ingresada)) {
                 nombre_ingresado= u.getNombre();
+                userSesion = u;
                 accesoMenu();
 
             } else {

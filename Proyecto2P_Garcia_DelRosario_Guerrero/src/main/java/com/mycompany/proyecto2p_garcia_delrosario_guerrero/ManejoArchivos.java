@@ -28,7 +28,7 @@ public class ManejoArchivos {
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File(nombrearchivo);
-            fr = new FileReader(archivo);
+            fr = new FileReader(archivo,StandardCharsets.UTF_8);
             br = new BufferedReader(fr);
 
             // Lectura del fichero

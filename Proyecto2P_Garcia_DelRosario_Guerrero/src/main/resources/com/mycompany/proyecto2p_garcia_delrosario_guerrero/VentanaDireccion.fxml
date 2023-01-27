@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaDireccionController" >
+   <children>
+      <VBox prefHeight="91.0" prefWidth="600.0">
+         <children>
+            <Label text="Dirección de Entrega" textFill="#ee6f00">
+               <VBox.margin>
+                  <Insets left="30.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="45.0" prefWidth="600.0">
+               <children>
+                  <Label text="Dirección:">
+                     <HBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField prefHeight="25.0" prefWidth="274.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="115.0" prefWidth="600.0">
+         <children>
+            <Label text="Detalle de Pago" textFill="#ee6f00">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Efectivo">
+                     <HBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Tarjeta de Credito">
+                     <HBox.margin>
+                        <Insets left="25.0" top="20.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="255.0" prefWidth="600.0" />
+      <HBox alignment="CENTER" prefHeight="138.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: #ee6f00;" text="Continuar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #ee6f00;" text="Limpiar">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

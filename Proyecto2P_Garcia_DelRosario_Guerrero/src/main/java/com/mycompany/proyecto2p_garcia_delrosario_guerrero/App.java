@@ -18,6 +18,7 @@ public class App extends Application {
     public static Scene scene;
     public static String pathFiles = "src/main/resources/files/";
     public static String pathImg = "src/main/resources/images/";
+    public static String pathPed = "src/main/resources/pedidos/";
 
     @Override
     public void start(Stage stage) throws Exception {

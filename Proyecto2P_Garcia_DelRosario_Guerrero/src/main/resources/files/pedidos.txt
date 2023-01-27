@@ -1,0 +1,5 @@
+1472,Jaime Garcia,5,60
+9511,Jaime Garcia,5,60
+4993,Jaime Garcia,8,96
+9756,Jaime Garcia,4,48
+7352,Jaime Garcia,19,60

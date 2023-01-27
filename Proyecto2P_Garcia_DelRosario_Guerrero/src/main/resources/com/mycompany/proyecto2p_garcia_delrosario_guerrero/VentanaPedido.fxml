@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaPedidoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaPedidoController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="600.0">
          <children>
@@ -24,9 +24,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="32.0" prefWidth="600.0">
+      <HBox prefHeight="48.0" prefWidth="580.0">
          <children>
-            <Label text="Tipo">
+            <Label prefHeight="17.0" prefWidth="63.0" text="Tipo">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -39,9 +39,9 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </ComboBox>
-            <Label prefHeight="17.0" prefWidth="74.0" text="Ordenar por">
+            <Label prefHeight="17.0" prefWidth="110.0" text="Ordenar por">
                <HBox.margin>
-                  <Insets left="140.0" />
+                  <Insets left="111.0" />
                </HBox.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -49,98 +49,140 @@
             </Label>
             <ComboBox fx:id="cb_ordenar" prefWidth="150.0">
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets left="20.0" />
                </HBox.margin>
             </ComboBox>
          </children>
+         <VBox.margin>
+            <Insets right="40.0" />
+         </VBox.margin>
       </HBox>
-      <HBox prefHeight="49.0" prefWidth="600.0">
+      <HBox prefHeight="409.0" prefWidth="580.0">
          <children>
-            <Label text="Opciones" textFill="#eb7d00">
-               <HBox.margin>
-                  <Insets left="20.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label text="Pedido" textFill="#eb7d00">
-               <HBox.margin>
-                  <Insets left="370.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox prefHeight="160.0" prefWidth="600.0">
-         <children>
-            <VBox fx:id="tabla_opciones" prefHeight="160.0" prefWidth="371.0" />
-            <VBox prefHeight="160.0" prefWidth="303.0">
+            <VBox prefHeight="397.0" prefWidth="386.0">
                <children>
-                  <TableView fx:id="tabla_pedidos">
+                  <Label text="Opciones" textFill="#eb7d00">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="10.0" prefWidth="346.0">
+                     <children>
+                        <Label text="Descripción">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="50.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Precio">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="25.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Cantidad">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="342.0" prefWidth="346.0">
+                     <children>
+                        <VBox fx:id="vbdesc" prefHeight="328.0" prefWidth="139.0" />
+                        <VBox fx:id="vbprecio" alignment="TOP_CENTER" prefHeight="328.0" prefWidth="79.0" />
+                        <VBox fx:id="vbcant" alignment="TOP_CENTER" prefHeight="328.0" prefWidth="70.0" />
+                        <VBox fx:id="vbbtnagregar" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" />
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="49.0" prefWidth="325.0">
+               <children>
+                  <Label text="Pedido" textFill="#eb7d00">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TableView fx:id="tabla_pedidos" prefHeight="222.0" prefWidth="249.0">
                     <columns>
-                      <TableColumn prefWidth="92.0" text="Descripción" />
-                      <TableColumn prefWidth="88.0" text="Cantidad" />
-                        <TableColumn prefWidth="85.0" text="Valor" />
+                      <TableColumn fx:id="tcdesc" prefWidth="172.0" text="Descripción" />
+                      <TableColumn fx:id="tcant" prefWidth="60.0" text="Cantidad" />
+                        <TableColumn fx:id="tcvalor" prefWidth="52.0" text="Valor" />
                     </columns>
                   </TableView>
-               </children></VBox>
-         </children>
-      </HBox>
-      <HBox alignment="TOP_RIGHT" prefHeight="156.0" prefWidth="600.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text="Subtotal:" textFill="#eb7d00">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label text="IVA:" textFill="#eb7d00">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label text="Total:" textFill="#eb7d00">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="subtotal" text="0.00">
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="iva" text="0.00">
-                     <VBox.margin>
-                        <Insets bottom="15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="total" text="0.00" />
+                  <HBox alignment="CENTER" prefHeight="156.0" prefWidth="600.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="148.0" prefWidth="70.0">
+                           <children>
+                              <Label text="Subtotal:" textFill="#eb7d00">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label text="IVA:" textFill="#eb7d00">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Total:" textFill="#eb7d00">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT" prefHeight="148.0" prefWidth="40.0">
+                           <children>
+                              <Label fx:id="subtotal" text="0.00">
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="iva" text="0.00">
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="total" text="0.00" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btn_continuar" mnemonicParsing="false" style="-fx-background-color: #FFB945;" text="Continuar">
+            <Button fx:id="btn_continuar" mnemonicParsing="false" onAction="#continuar" style="-fx-background-color: #FFB945;" text="Continuar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btn_limpiar" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #FFB945;" text="Limpiar">
+            <Button fx:id="btn_limpiar" mnemonicParsing="false" onAction="#limpiar" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #FFB945;" text="Limpiar">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
