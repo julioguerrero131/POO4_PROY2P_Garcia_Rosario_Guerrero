@@ -36,7 +36,7 @@ import modelo.Usuario;
 public class VentanaSistemaController implements Initializable {
 
     /**
-     * Initializes the controller class.
+     * Metodo Initialize; Inicializa el controlador de la clase.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,21 +58,44 @@ public class VentanaSistemaController implements Initializable {
         }
 
     }
-
+    
+    /**
+     * TextField tf_usuario; campo de texto para llenar el usuario ingresado
+     */
     @FXML
     private TextField tf_usuario;
+    /**
+     * PasswordField tf_contrasenia; campo de texto codificado para llenar la contraseña ingresada
+     */
     @FXML
     private PasswordField tf_contrasenia;
+    
+    /**
+     * Button btn_ingresar; Botón que permite ingresar a la pestaña del menú
+     */
     @FXML
     private Button btn_ingresar;
+    
+    /**
+     * ImageView imagen1; contenedor en donde se pondrá la primera imagen de la ventana del Sistema
+     */
     @FXML
     private ImageView imagen1;
+    /**
+     * ImageView imagen2; contenedor en donde se pondrá la segunda imagen de la ventana del Sistema
+     */
     @FXML
     private ImageView imagen2;
+    
+    /**
+     * HBox hbox_advertencia; contenedor en donde se colocará un mensaje de advertencia para un usuario incorrecto o contraseña incorrecta
+     */
     @FXML
     private HBox hbox_advertencia;
     
-    
+    /**
+     * String nombre_ingresado; variable estatica que guarda el nombre del usuario ingresado
+     */
     public static String nombre_ingresado;
     public static Usuario userSesion;
     
@@ -100,6 +123,10 @@ public class VentanaSistemaController implements Initializable {
         }
 
     }
+    
+    /**
+     * Metodo que da acceso a la Ventana de Menú
+     */
 
     public void accesoMenu() {
         try {
@@ -113,9 +140,18 @@ public class VentanaSistemaController implements Initializable {
             System.out.println("Error acceso Menu");
         }
     }
+    
+    /**
+     * ArrayList de usuarios en donde se guardará todos los usuarios del archivo txt
+     */
 
     public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();
 
+    
+    /**
+     * Metodo que cargará los usuarios del archivo txt
+     * @param nombreArchivo 
+     */
     public static void cargarUsuarios(String nombreArchivo) {
         ArrayList<String> lineaUsuarios = ManejoArchivos.LeeFichero(nombreArchivo);
 

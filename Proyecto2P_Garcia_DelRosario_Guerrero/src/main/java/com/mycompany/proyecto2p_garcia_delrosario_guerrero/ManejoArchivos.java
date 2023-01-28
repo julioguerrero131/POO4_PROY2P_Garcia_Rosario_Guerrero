@@ -17,6 +17,13 @@ import java.util.ArrayList;
  *
  * @author Cliente Intel
  */
+
+    /**
+     * Este metodo retorna un ArrayList de elementos tipo String
+     * @param nombrearchivo String necesario para generar la lista
+     * @return ArrayList de la lectura de los Strings en los archivos
+     */
+
 public class ManejoArchivos {
      public static ArrayList<String> LeeFichero(String nombrearchivo) {
         ArrayList<String> lineas = new ArrayList<>();
@@ -56,10 +63,12 @@ public class ManejoArchivos {
         return lineas;
 
     }
-/**
- * @param nombreArchivo, String
- * @param linea, String
- */
+    /**
+     * ESte metodo retorna void 
+     * @param nombreArchivo String necesario para crear el fichero
+     * @param linea String necesario para escribir en el fichero
+     * Retorna un archivo de tipo txt con la informacion generada
+     */
     public static void EscribirArchivo(String nombreArchivo, String linea) {
 
         FileWriter fichero = null;
