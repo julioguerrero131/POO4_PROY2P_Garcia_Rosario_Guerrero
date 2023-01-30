@@ -71,6 +71,7 @@
          <VBox.margin>
             <Insets top="30.0" />
          </VBox.margin></VBox>
+      <VBox fx:id="cont_advertencia" prefHeight="136.0" prefWidth="600.0" />
       <HBox alignment="CENTER" prefHeight="138.0" prefWidth="600.0">
          <children>
             <Button fx:id="btn_continuar" mnemonicParsing="false" onAction="#ingresarGracias" style="-fx-background-color: #ee6f00;" text="Continuar">

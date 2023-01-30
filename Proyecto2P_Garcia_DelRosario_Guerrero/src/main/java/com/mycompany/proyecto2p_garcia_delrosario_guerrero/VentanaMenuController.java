@@ -53,10 +53,6 @@ public class VentanaMenuController implements Initializable {
 
         }
     }
-    
-    
-    
-    
 
     @FXML
     private ImageView viewMenu;
@@ -72,6 +68,12 @@ public class VentanaMenuController implements Initializable {
         
         ingresar_pedido();
     }
+    
+    @FXML
+    void cercano(ActionEvent event){
+        
+        accesoMapa();
+    }
  
     public void ingresar_pedido() {
         try {
@@ -80,11 +82,29 @@ public class VentanaMenuController implements Initializable {
             Scene menu = new Scene(root);
             Stage stage = (Stage) btn_pedido.getScene().getWindow();
             stage.setScene(menu);
+            stage.show();
 
         } catch (IOException ex) {
-            System.out.println("Error ingresar_pedido");
+            System.out.println("Error ingresar pedido");
         }
 
     }
+    
+    public void accesoMapa() {
+        try {
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("Mapa.fxml"));
+            Parent origen = fxmlloader.load();
+            Scene menu = new Scene(origen);
+            Stage stage = (Stage) btn_cercano.getScene().getWindow();
+            stage.setScene(menu);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println("Error acceso Menu");
+            ex.printStackTrace();
+        }
+    }
+    
+    
 
 }

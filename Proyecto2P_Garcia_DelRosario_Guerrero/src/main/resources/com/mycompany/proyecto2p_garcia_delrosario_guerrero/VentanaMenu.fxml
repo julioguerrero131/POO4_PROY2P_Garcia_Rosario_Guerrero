@@ -25,7 +25,7 @@
             </VBox>
             <VBox alignment="BOTTOM_CENTER" minHeight="184.0" minWidth="299.0" prefHeight="184.0" prefWidth="299.0">
                <children>
-                  <Button fx:id="btn_cercano" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" style="-fx-background-color: #ff9706;" text="Encuentra el local mas cercano">
+                  <Button fx:id="btn_cercano" mnemonicParsing="false" onAction="#cercano" prefHeight="25.0" prefWidth="243.0" style="-fx-background-color: #ff9706;" text="Encuentra el local mas cercano">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>

@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto2p_garcia_delrosario_guerrero;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,8 +17,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -27,6 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import modelo.Menu;
 import modelo.Orden;
 import modelo.Pedido;
@@ -46,6 +51,7 @@ public class VentanaPedidoController implements Initializable {
     private ObservableList<Menu> listaPedido;
     private Orden ordenSelec;
     private ArrayList<Menu> menuFilt = new ArrayList();
+    public static Pedido totalPedido;
 
     @FXML
     private ComboBox<String> cb_tipo;
@@ -275,8 +281,7 @@ public class VentanaPedidoController implements Initializable {
 
     }
     
-    public void limpiar() {
-        
+    public void limpiar() {       
         subtotal.setText("0.00");
         iva.setText("0.00");
         total.setText("0.00");
@@ -290,6 +295,7 @@ public class VentanaPedidoController implements Initializable {
         
     }
     
+    @FXML
     public void continuar() {
         Usuario usuario = VentanaSistemaController.userSesion;
         String s = subtotal.getText();
@@ -297,7 +303,23 @@ public class VentanaPedidoController implements Initializable {
         String t = total.getText(); 
         ArrayList<Menu> listaP = new ArrayList(listaPedido);
         Pedido pedido = new Pedido(usuario,listaP,s,i,t);
-        
+        totalPedido = pedido;
+        ingresarDireccion();
+    }
+    
+    public void ingresarDireccion(){
+         try {
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("VentanaDireccion.fxml"));
+            Parent origen = fxmlloader.load();
+            Scene menu = new Scene(origen);
+            Stage stage = (Stage) btn_continuar.getScene().getWindow();
+            stage.setScene(menu);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println("Error acceso Menu");
+            ex.printStackTrace();
+        }
     }
 
 //    public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();

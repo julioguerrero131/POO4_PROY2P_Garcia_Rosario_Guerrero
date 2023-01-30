@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="cont_vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaGraciasController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="288.0" prefWidth="600.0" spacing="5.0">
          <children>
@@ -16,19 +15,15 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
-            <Label text="Label" />
+            <Label fx:id="lbl_id" text="Label" />
             <Label text="En aproximadamente 30 minutos llegará su pedido" />
             <Label text="Gracias por preferirnos" />
-            <ImageView fitHeight="169.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgv_imagen" fitHeight="169.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <VBox.margin>
-            <Insets bottom="50.0" top="50.0" />
+            <Insets bottom="10.0" top="50.0" />
          </VBox.margin>
       </VBox>
-      <VBox alignment="BOTTOM_RIGHT" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <Label text="Label" />
-         </children>
-      </VBox>
+      <VBox fx:id="vb_cerrando" alignment="BOTTOM_RIGHT" prefHeight="195.0" prefWidth="600.0" />
    </children>
 </VBox>

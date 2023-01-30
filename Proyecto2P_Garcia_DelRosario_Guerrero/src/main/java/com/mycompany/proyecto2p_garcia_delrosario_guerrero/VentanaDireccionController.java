@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto2p_garcia_delrosario_guerrero;
 
+import static com.mycompany.proyecto2p_garcia_delrosario_guerrero.VentanaPedidoController.totalPedido;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,6 +48,8 @@ public class VentanaDireccionController implements Initializable {
     @FXML
     private VBox datos;
     @FXML
+    private VBox cont_advertencia;
+    @FXML
     private Button btn_continuar;
     @FXML
     private Button btn_limpiar;
@@ -55,8 +58,9 @@ public class VentanaDireccionController implements Initializable {
 
     @FXML
     void efectivo(ActionEvent event) {
+        cont_advertencia.getChildren().clear();
         datos.getChildren().clear();
-        Label mensaje = new Label("Tendrá que pagar un total de" + "");
+        Label mensaje = new Label("Tendrá que pagar un total de" + " " + String.valueOf(totalPedido.getTotal()));
         Label mensaje2 = new Label("Asegurese de tener el dinero completo por si el repartidor no tiene cambio");
         datos.getChildren().addAll(mensaje, mensaje2);
     }
@@ -65,12 +69,17 @@ public class VentanaDireccionController implements Initializable {
     TextField campo_n = new TextField();
     TextField campo_c = new TextField();
     TextField campo_cv = new TextField();
+    RadioButton elegido;
+    Label advertencia = new Label("Llene todos los datos solicitados. Vuelva a intentar");
 
     @FXML
     void tarjeta(ActionEvent event) {
-
+        cont_advertencia.getChildren().clear();
         datos.getChildren().clear();
 
+        Double v = Double.valueOf(totalPedido.getTotal()) + (Double.valueOf(totalPedido.getTotal()) * 0.05);
+        String valorIncrementado = String.format("%.2f", v);
+        Label tarj = new Label("Tendra que pagar un total de " + valorIncrementado + " dolares por el incremento del 5% por uso de tarjeta. ");
         Label titular = new Label("Titular: ");
         Label numero = new Label("Número: ");
         Label caducidad = new Label("Caducidad: ");
@@ -107,28 +116,48 @@ public class VentanaDireccionController implements Initializable {
         seccion3.getChildren().addAll(caducidad, campo_c);
         seccion4.getChildren().addAll(cvv, campo_cv);
 
-        datos.getChildren().addAll(seccion1, seccion2, seccion3, seccion4);
+        datos.getChildren().addAll(tarj, seccion1, seccion2, seccion3, seccion4);
     }
 
+//    @FXML
+//    void ingresarGracias(ActionEvent event) {
+//        cont_advertencia.getChildren().clear();
+////        if(tf_direccion.getText().equals("")){
+////            cont_advertencia.getChildren().add(advertencia);
+////        }else if(campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals("")){
+////            cont_advertencia.getChildren().add(advertencia);
+////        }else if (campo_t.getText().equals("") || campo_n.getText().equals("") || campo_c.getText().equals("") || campo_cv.getText().equals("")){
+////            cont_advertencia.getChildren().add(advertencia);
+//        if (!(tf_direccion.getText().equals("")) || (campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals(""))) {
+//            accesoGracias();
+//        } else {
+//            cont_advertencia.getChildren().add(advertencia);
+//        }
+//    }
+
     @FXML
-    void ingresarGracias(ActionEvent event) { 
-        datos.getChildren().clear();
-        if(tf_direccion.getText().equals(" ")){
-            datos.getChildren().clear();
-            Label advertencia= new Label("Llene todos los datos solicitados. Vuelva a intentar");
-            datos.getChildren().add(advertencia);
-        }else if(campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals("")){
-            Label advertencia= new Label("Llene todos los datos solicitados. Vuelva a intentar");
-            datos.getChildren().add(advertencia);
-        }else{
-            accesoGracias();
+    void ingresarGracias(ActionEvent event) {
+        elegido = (RadioButton) detalles.getSelectedToggle();
+        if (elegido.getText().equals("Efectivo")) {
+            if (!(tf_direccion.getText().equals("")) && (campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals(""))) {
+                accesoGracias();
+            } else {
+                cont_advertencia.getChildren().add(advertencia);
+            }
+        } else {
+            if (!(tf_direccion.getText().equals("")) && !(campo_t.getText().equals("") || campo_n.getText().equals("") || campo_c.getText().equals("") || campo_cv.getText().equals(""))) {
+                accesoGracias();
+            } else {
+                cont_advertencia.getChildren().clear();
+                cont_advertencia.getChildren().add(advertencia);
+            }
         }
     }
 
     @FXML
     void limpiar(ActionEvent event) {
 
-        RadioButton elegido = (RadioButton) detalles.getSelectedToggle();
+        elegido = (RadioButton) detalles.getSelectedToggle();
 
         if (elegido.getText().equals("Efectivo")) {
             tf_direccion.clear();
@@ -155,5 +184,4 @@ public class VentanaDireccionController implements Initializable {
             System.out.println("Error acceso Menu");
         }
     }
-
 }
