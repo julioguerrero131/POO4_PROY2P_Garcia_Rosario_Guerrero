@@ -23,6 +23,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import modelo.Pedido;
+import java.time.LocalDate;
 
 /**
  * FXML Controller class
@@ -119,46 +121,38 @@ public class VentanaDireccionController implements Initializable {
         datos.getChildren().addAll(tarj, seccion1, seccion2, seccion3, seccion4);
     }
 
-//    @FXML
-//    void ingresarGracias(ActionEvent event) {
-//        cont_advertencia.getChildren().clear();
-////        if(tf_direccion.getText().equals("")){
-////            cont_advertencia.getChildren().add(advertencia);
-////        }else if(campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals("")){
-////            cont_advertencia.getChildren().add(advertencia);
-////        }else if (campo_t.getText().equals("") || campo_n.getText().equals("") || campo_c.getText().equals("") || campo_cv.getText().equals("")){
-////            cont_advertencia.getChildren().add(advertencia);
-//        if (!(tf_direccion.getText().equals("")) || (campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals(""))) {
-//            accesoGracias();
-//        } else {
-//            cont_advertencia.getChildren().add(advertencia);
-//        }
-//    }
-
     @FXML
     void ingresarGracias(ActionEvent event) {
+        try{
         elegido = (RadioButton) detalles.getSelectedToggle();
         if (elegido.getText().equals("Efectivo")) {
             if (!(tf_direccion.getText().equals("")) && (campo_t.getText().equals("") && campo_n.getText().equals("") && campo_c.getText().equals("") && campo_cv.getText().equals(""))) {
+                pago();
                 accesoGracias();
             } else {
                 cont_advertencia.getChildren().add(advertencia);
             }
         } else {
             if (!(tf_direccion.getText().equals("")) && !(campo_t.getText().equals("") || campo_n.getText().equals("") || campo_c.getText().equals("") || campo_cv.getText().equals(""))) {
+               pago();
                 accesoGracias();
             } else {
                 cont_advertencia.getChildren().clear();
                 cont_advertencia.getChildren().add(advertencia);
             }
         }
+        }catch(Exception e){
+            cont_advertencia.getChildren().clear();
+            cont_advertencia.getChildren().add(advertencia);
+        }
+        
     }
 
     @FXML
     void limpiar(ActionEvent event) {
-
+        
         elegido = (RadioButton) detalles.getSelectedToggle();
-
+   
         if (elegido.getText().equals("Efectivo")) {
             tf_direccion.clear();
             rb_efectivo.setSelected(false);
@@ -183,5 +177,23 @@ public class VentanaDireccionController implements Initializable {
         } catch (IOException ex) {
             System.out.println("Error acceso Menu");
         }
+    }
+    
+    void pago(){
+        String id_pedido = totalPedido.getId();
+        String id_pago = Pedido.generarIdPed();
+        String nombre = totalPedido.getUsuario().getNombre();
+        String total = totalPedido.getTotal();
+        LocalDate dia = LocalDate.now();
+        String dia_s = dia.toString();
+        String metodo = elegido.getText();
+        String x;
+         if (metodo.equals("Efectivo")) {
+            x = "E";
+        } else {
+            x = "C";
+        }
+         String linea = id_pedido+ "," + id_pago + "," + nombre + "," + total + "," + dia_s + "," + x;
+         ManejoArchivos.EscribirArchivo(App.pathFiles + "pagos.txt", linea);
     }
 }

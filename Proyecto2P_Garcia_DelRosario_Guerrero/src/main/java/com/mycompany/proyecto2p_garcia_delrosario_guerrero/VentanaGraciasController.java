@@ -40,7 +40,7 @@ public class VentanaGraciasController implements Initializable {
         String texto = "Su pedido Nro. " + totalPedido.getId() + " ha sido pagado y ahora empezaremos a prepararlo.";
         lbl_id.setText(texto);
         try ( FileInputStream input = new FileInputStream(App.pathImg + "imagen_gracias.png")) {
-            Image img = new Image(input, 100, 100, false, false);
+            Image img = new Image(input, 200, 200, false, false);
             imgv_imagen.setImage(img);
 
         } catch (IOException ex) {

@@ -57,7 +57,7 @@ public class Pedido implements Serializable {
         
     }
     
-    public String generarIdPed() {
+    public static String generarIdPed() {
         
         String banco = "0123456789";
         String id= "";

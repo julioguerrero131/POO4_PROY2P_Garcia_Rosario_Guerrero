@@ -32,16 +32,12 @@ public class ManejoArchivos {
         BufferedReader br = null;
 
         try {
-            // Apertura del fichero y creacion de BufferedReader para poder
-            // hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File(nombrearchivo);
             fr = new FileReader(archivo,StandardCharsets.UTF_8);
             br = new BufferedReader(fr);
 
-            // Lectura del fichero
             String linea;
             while ((linea = br.readLine()) != null) {
-//                System.out.println(linea);
                 lineas.add(linea);
 
             }
@@ -49,9 +45,6 @@ public class ManejoArchivos {
         } catch (Exception e) {
             System.out.println("Error lectura archivo");
         } finally {
-            // En el finally cerramos el fichero, para asegurarnos
-            // que se cierra tanto si todo va bien como si salta 
-            // una excepcion.
             try {
                 if (null != fr) {
                     fr.close();

@@ -42,15 +42,11 @@ public class VentanaMenuController implements Initializable {
         Label nombre= new Label("Bienvenid@" + " " +nombre_ingresado);
         nombre.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         nombre.setStyle("-fx-text-fill:#ff9706");
-        hb_bienvenido.getChildren().add(nombre);
-        
+        hb_bienvenido.getChildren().add(nombre);       
         try ( FileInputStream input = new FileInputStream(App.pathImg + "imagenMenu.png")) {
-            Image image = new Image(input, 400, 400, false, false);
+            Image image = new Image(input, 600, 1000, false, false);
             viewMenu.setImage(image);
-            Rectangle2D viewreport= new Rectangle2D(-1200,-1000, viewMenu.getImage().getWidth()+800, viewMenu.getImage().getHeight()+800);
-
         } catch (IOException ex) {
-
         }
     }
 

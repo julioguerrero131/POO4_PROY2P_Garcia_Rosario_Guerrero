@@ -83,6 +83,8 @@ public class VentanaPedidoController implements Initializable {
     private Button btn_continuar;
     @FXML
     private Button btn_limpiar;
+    @FXML
+    private Label valor_insf;
 
     /**
      * Initializes the controller class.
@@ -97,8 +99,6 @@ public class VentanaPedidoController implements Initializable {
         cb_ordenar.setOnAction(e -> selecOrden());
         btn_limpiar.setOnAction(e -> limpiar());
         btn_continuar.setOnAction(e -> continuar());
-        
-
     }
 
     public void cargarMenu(String nombreArchivo) {
@@ -140,7 +140,11 @@ public class VentanaPedidoController implements Initializable {
         try {
             llenarOpciones(menuf);
             menuFilt = menuf;
+            if (ordenSelec != null) {
+                selecOrden();
+            }
         } catch (ValorInsuficienteException ex) {
+            valor_insf.setText("Valor insuficiente");
             ex.printStackTrace();
         }
     }
@@ -170,8 +174,9 @@ public class VentanaPedidoController implements Initializable {
             try {
                 llenarOpciones(menuFilt);
             } catch (ValorInsuficienteException vie) {
+                valor_insf.setText("Valor insuficiente");
                 vie.printStackTrace();
-            } 
+            }
         }
 
     }
@@ -235,6 +240,7 @@ public class VentanaPedidoController implements Initializable {
                     }
 
                 } catch (ValorInsuficienteException ex) {
+                    valor_insf.setText("Valor insuficiente");
                     ex.printStackTrace();
                 }
 
@@ -278,37 +284,40 @@ public class VentanaPedidoController implements Initializable {
         subtotal.setText(String.format("%.2f", subt));
         iva.setText(String.format("%.2f", iv));
         total.setText(String.format("%.2f", subt + iv));
-
     }
-    
-    public void limpiar() {       
+
+    public void limpiar() {
         subtotal.setText("0.00");
         iva.setText("0.00");
         total.setText("0.00");
-        
-        for (Menu m:listaPedido) {
+
+        for (Menu m : listaPedido) {
             m.setCantidad(0);
             m.setPreciototal(0);
         }
         listaPedido.clear();
         tabla_pedidos.refresh();
-        
+
     }
-    
+
     @FXML
     public void continuar() {
-        Usuario usuario = VentanaSistemaController.userSesion;
-        String s = subtotal.getText();
-        String i = iva.getText();
-        String t = total.getText(); 
-        ArrayList<Menu> listaP = new ArrayList(listaPedido);
-        Pedido pedido = new Pedido(usuario,listaP,s,i,t);
-        totalPedido = pedido;
-        ingresarDireccion();
+            Usuario usuario = VentanaSistemaController.userSesion;
+            String s = subtotal.getText();
+            if (!s.equals("0.00")) {
+            String i = iva.getText();
+            String t = total.getText();
+            ArrayList<Menu> listaP = new ArrayList(listaPedido);
+            Pedido pedido = new Pedido(usuario, listaP, s, i, t);
+            totalPedido = pedido;
+            ingresarDireccion();
+        }else{
+            valor_insf.setText("Valor insuficiente");
+        }
     }
-    
-    public void ingresarDireccion(){
-         try {
+
+    public void ingresarDireccion() {
+        try {
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("VentanaDireccion.fxml"));
             Parent origen = fxmlloader.load();
             Scene menu = new Scene(origen);
@@ -321,15 +330,4 @@ public class VentanaPedidoController implements Initializable {
             ex.printStackTrace();
         }
     }
-
-//    public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();
-//
-//    public static void cargarUsuarios(String nombreArchivo) {
-//        ArrayList<String> lineaUsuarios = ManejoArchivos.LeeFichero(nombreArchivo);
-//
-//        for (int i = 0; i < lineaUsuarios.size(); i++) {
-//            String[] datos = lineaUsuarios.get(i).split(";");
-//            Usuario usu = new Usuario(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5]);
-//            lista_usuarios.add(usu);
-//        }
 }
